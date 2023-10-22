@@ -1,0 +1,25 @@
+---
+title: Table And Graph For Multiple Response Questions
+name: MultipleResponse
+version: 0.1.1
+jms: '1.0'
+authors:
+  - Vincent Jalby
+maintainer: The package maintainer <vincent.jalby@unilim.fr>
+date: '2023-10-21'
+type: R
+description: >-
+  SPSS like analysis for multiple response questions. Strongly inspired by 
+  multiResponse function from  <a target="_blank" 
+  href="https://cran.r-project.org/web/packages/ufs/">ufs package</a>.
+analyses:
+  - title: Multiple Response
+    name: multipleresponse
+    ns: MultipleResponse
+    menuGroup: Exploration
+    menuTitle: Multiple Response
+    menuSubgroup: Multiple Response
+usesNative: true
+minApp: 1.0.8
+
+...

@@ -1,0 +1,42 @@
+---
+name:  multipleresponse
+title: Multiple Response
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Multiple Response
+      type:  Preformatted
+
+    - name:  responses
+      title: Frequencies
+      type: Table
+      rows:  (resps)
+      notes: 
+        'noc': ''
+      columns:
+        - name: var
+          title: 'Options'
+          type: text
+        - name: freq
+          title: 'Counts'
+          type: integer
+          visible: (showCounts)
+        - name: responsepercent
+          title: '% of Responses'
+          type: number
+          format: pc
+          visible: (showResponses)
+        - name: casepercent
+          title: '% of Cases'
+          type: number
+          format: pc
+          visible: (showCases)
+
+    - name: plot
+      title: Frequency Plot
+      type: Image
+      width:  400
+      height: 300
+      renderFun: .plot
+...
