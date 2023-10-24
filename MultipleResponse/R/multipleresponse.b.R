@@ -18,10 +18,10 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
             # `self$options` contains the options
             # `self$results` contains the results object (to populate)
           
+          if( length(self$options$resps) < 2 ) return()
+          
           myresult <- private$multipleResponse(self$data, self$options$resps, self$options$endorsed, self$options$order)
           #self$results$text$setContent( myresult$df )
-          
-          if(myresult$nrOfCases == 0) return()
           
           table <- self$results$responses
           
@@ -70,17 +70,7 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
         },
         multipleResponse = function (data, items = NULL, endorsedOption = 1, order='none') 
         {
-          result<-0 # Empty result
-          if( length(items) < 2 ) {
-            result$def <- data.frame()
-            result$nrOfCases <- 0
-            return(result)
-          }
           # From userfriendlyscience package
-          if (!all(items %in% names(data))) {
-            stop("You specified items that do not exist in the data you provided (specifically, ", 
-                 toString(items[!items %in% names(data)]), ").")
-          }
           data = data[, items]
           nrOfEndorsements = sum(data == endorsedOption, na.rm = TRUE)
           endorsementsPerItem = colSums(data == endorsedOption, na.rm = TRUE)
@@ -89,9 +79,7 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
           res <- data.frame(c(names(endorsementsPerItem), "Total"),
                             totals, (totals/nrOfEndorsements), 
                             (totals/nrOfCases))
-          names(res) <- c("Option", "Frequency", "Responses", 
-                          #                    paste0("Percentage of (", nrOfCases, ") cases"))
-                          "Cases")
+          names(res) <- c("Option", "Frequency", "Responses", "Cases")
           # Sort
           n<-length(items)
           if (order == 'decreasing') {
@@ -100,9 +88,7 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
           else if (order == 'increasing') {
             res<-res[c(order(res$Frequency[1:n], decreasing = FALSE),n+1),]
           }
-          result$df<-res
-          result$nrOfCases<-nrOfCases
-          return(result)
+          return( list('nrOfCases'=nrOfCases, 'df'=res) )
         }
     )
 )
