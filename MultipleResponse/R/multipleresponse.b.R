@@ -49,8 +49,8 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
           
         },
         .plot=function(image, ggtheme, theme, ...) {  # <-- the plot function
+          if( length(self$options$resps) < 2 ) return()
           plotData <- image$state
-          if( length(plotData) <2 ) return()
 
           # to be sure the factor ordering is kept          
           plotData$Option <- factor(plotData$Option, levels=plotData$Option)
