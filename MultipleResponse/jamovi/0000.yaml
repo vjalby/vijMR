@@ -1,7 +1,7 @@
 ---
 title: Table And Graph For Multiple Response Questions
 name: MultipleResponse
-version: 0.1.2
+version: 0.9.0
 jms: '1.0'
 authors:
   - Vincent Jalby
@@ -11,7 +11,9 @@ type: R
 description: >-
   SPSS like analysis for multiple response questions. Strongly inspired by 
   multiResponse function from  <a target="_blank" 
-  href="https://cran.r-project.org/web/packages/ufs/">ufs package</a>.
+  href="https://cran.r-project.org/web/packages/ufs/">ufs package</a>. Project
+  source is available at  <a href="https://github.com/vjalby/multipleresponse/"
+  target="_blank">Github</a>
 analyses:
   - title: Multiple Response
     name: multipleresponse
