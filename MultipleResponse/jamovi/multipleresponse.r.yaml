@@ -39,4 +39,11 @@ items:
       width:  400
       height: 300
       renderFun: .plot
+      clearWith:
+        - resps
+        - endorsed
+        - order
+        - yaxis
+        - plotWidth
+        - plotHeight
 ...

@@ -70,10 +70,14 @@ multipleresponseOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             private$..plotWidth <- jmvcore::OptionInteger$new(
                 "plotWidth",
                 plotWidth,
+                min=200,
+                max=800,
                 default=400)
             private$..plotHeight <- jmvcore::OptionInteger$new(
                 "plotHeight",
                 plotHeight,
+                min=150,
+                max=600,
                 default=300)
 
             self$.addOption(private$..resps)
@@ -164,7 +168,14 @@ multipleresponseResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                 title="Frequency Plot",
                 width=400,
                 height=300,
-                renderFun=".plot"))}))
+                renderFun=".plot",
+                clearWith=list(
+                    "resps",
+                    "endorsed",
+                    "order",
+                    "yaxis",
+                    "plotWidth",
+                    "plotHeight")))}))
 
 multipleresponseBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "multipleresponseBase",

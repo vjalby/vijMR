@@ -23,7 +23,7 @@ options:
       title: Endorsed Option
       type: Integer
       default: 1
-      
+
     - name: order
       title: Sorting
       type: List
@@ -50,7 +50,7 @@ options:
       title: "% of Responses"
       type: Bool
       default: true
-      
+
     - name: showCases
       title: "% of Cases"
       type: Bool
@@ -67,15 +67,19 @@ options:
         - title: '% of Cases'
           name:  cases
       default: cases
-      
+
     - name: plotWidth
       type: Integer
-      title: "Size:"
+      title: "Width:"
+      min: 200
+      max: 800
       default: 400
-      
+
     - name: plotHeight
       type: Integer
-      title: "X"
+      title: "Height:"
+      min: 150
+      max: 600
       default: 300
 
 ...
