@@ -8,9 +8,9 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
         .init = function() {
             image <- self$results$plot
             width <- self$options$plotWidth
-            #width <- max(min(width, 800),200)
+            width <- max(min(width, 800),200)
             height <- self$options$plotHeight
-            #height <- max(min(height, 600),150)
+            height <- max(min(height, 600),150)
             image$setSize(width, height)
         },
         .run = function() {

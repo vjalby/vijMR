@@ -71,15 +71,15 @@ options:
     - name: plotWidth
       type: Integer
       title: "Width:"
-      min: 200
-      max: 800
+      #min: 200
+      #max: 800
       default: 400
 
     - name: plotHeight
       type: Integer
       title: "Height:"
-      min: 150
-      max: 600
+      #min: 150
+      #max: 600
       default: 300
 
 ...
