@@ -7,11 +7,16 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
     private = list(
         .init = function() {
             image <- self$results$plot
-            width <- self$options$plotWidth
-            width <- max(min(width, 800),200)
-            height <- self$options$plotHeight
-            height <- max(min(height, 600),150)
-            image$setSize(width, height)
+            size <- self$options$size
+            if ( size == "small" ) {
+                image$setSize(300, 200)
+            } else if ( size == "medium" ) {
+                image$setSize(400,300)
+            } else if ( size == "large" ) {
+              image$setSize(600,400)
+            } else if ( size == "huge" ) {
+              image$setSize(800,500)
+            }
         },
         .run = function() {
             # `self$data` contains the data

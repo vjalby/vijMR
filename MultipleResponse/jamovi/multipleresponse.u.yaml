@@ -14,20 +14,21 @@ children:
           - type: VariablesListBox
             name: resps
             isTarget: true
-            ghostText: 'drag them here (at least 2)'
-  - type: LayoutBox
-    margin: large
-    children:
-      - type: TextBox
-        name: endorsed
-        format: number
-  - type: LayoutBox
-    margin: large
-    children:
-      - type: ComboBox
-        name: order
+            ghostText: drag them here (at least 2)
   - type: Label
-    label: Show
+    label: Option Variables
+    children:
+      - type: LayoutBox
+        stretchFactor: 1
+        style: inline
+        children:
+        - type: TextBox
+          name: endorsed
+          format: number
+        - type: ComboBox
+          name: order
+  - type: Label
+    label: Table
     children:
       - type: LayoutBox
         stretchFactor: 1
@@ -41,8 +42,6 @@ children:
             name: showResponses
           - type: CheckBox
             name: showCases
-
-
   - type: Label
     label: Plot
     children:
@@ -51,13 +50,5 @@ children:
         children:
           - type: ComboBox
             name: yaxis
-      - type: LayoutBox
-        stretchFactor: 1
-        style: inline
-        children:
-          - type: TextBox
-            name: plotWidth
-            format: number
-          - type: TextBox
-            name: plotHeight
-            format: number
+          - type: ComboBox
+            name: size

@@ -32,6 +32,10 @@ items:
           type: number
           format: pc
           visible: (showCases)
+      clearWith:
+        - resps
+        - endorsed
+        - order
 
     - name: plot
       title: Frequency Plot
@@ -44,6 +48,5 @@ items:
         - endorsed
         - order
         - yaxis
-        - plotWidth
-        - plotHeight
+        - size
 ...

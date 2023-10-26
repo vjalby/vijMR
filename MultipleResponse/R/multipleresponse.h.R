@@ -14,8 +14,7 @@ multipleresponseOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             showResponses = TRUE,
             showCases = TRUE,
             yaxis = "cases",
-            plotWidth = 400,
-            plotHeight = 300, ...) {
+            size = "medium", ...) {
 
             super$initialize(
                 package="MultipleResponse",
@@ -67,14 +66,15 @@ multipleresponseOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                     "responses",
                     "cases"),
                 default="cases")
-            private$..plotWidth <- jmvcore::OptionInteger$new(
-                "plotWidth",
-                plotWidth,
-                default=400)
-            private$..plotHeight <- jmvcore::OptionInteger$new(
-                "plotHeight",
-                plotHeight,
-                default=300)
+            private$..size <- jmvcore::OptionList$new(
+                "size",
+                size,
+                options=list(
+                    "small",
+                    "medium",
+                    "large",
+                    "huge"),
+                default="medium")
 
             self$.addOption(private$..resps)
             self$.addOption(private$..endorsed)
@@ -84,8 +84,7 @@ multipleresponseOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             self$.addOption(private$..showResponses)
             self$.addOption(private$..showCases)
             self$.addOption(private$..yaxis)
-            self$.addOption(private$..plotWidth)
-            self$.addOption(private$..plotHeight)
+            self$.addOption(private$..size)
         }),
     active = list(
         resps = function() private$..resps$value,
@@ -96,8 +95,7 @@ multipleresponseOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
         showResponses = function() private$..showResponses$value,
         showCases = function() private$..showCases$value,
         yaxis = function() private$..yaxis$value,
-        plotWidth = function() private$..plotWidth$value,
-        plotHeight = function() private$..plotHeight$value),
+        size = function() private$..size$value),
     private = list(
         ..resps = NA,
         ..endorsed = NA,
@@ -107,8 +105,7 @@ multipleresponseOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
         ..showResponses = NA,
         ..showCases = NA,
         ..yaxis = NA,
-        ..plotWidth = NA,
-        ..plotHeight = NA)
+        ..size = NA)
 )
 
 multipleresponseResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
@@ -157,7 +154,11 @@ multipleresponseResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                         `title`="% of Cases", 
                         `type`="number", 
                         `format`="pc", 
-                        `visible`="(showCases)"))))
+                        `visible`="(showCases)")),
+                clearWith=list(
+                    "resps",
+                    "endorsed",
+                    "order")))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot",
@@ -170,8 +171,7 @@ multipleresponseResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                     "endorsed",
                     "order",
                     "yaxis",
-                    "plotWidth",
-                    "plotHeight")))}))
+                    "size")))}))
 
 multipleresponseBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "multipleresponseBase",
@@ -206,8 +206,7 @@ multipleresponseBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
 #' @param showResponses .
 #' @param showCases .
 #' @param yaxis .
-#' @param plotWidth .
-#' @param plotHeight .
+#' @param size .
 #' @return A results object containing:
 #' \tabular{llllll}{
 #'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
@@ -232,8 +231,7 @@ multipleresponse <- function(
     showResponses = TRUE,
     showCases = TRUE,
     yaxis = "cases",
-    plotWidth = 400,
-    plotHeight = 300) {
+    size = "medium") {
 
     if ( ! requireNamespace("jmvcore", quietly=TRUE))
         stop("multipleresponse requires jmvcore to be installed (restart may be required)")
@@ -255,8 +253,7 @@ multipleresponse <- function(
         showResponses = showResponses,
         showCases = showCases,
         yaxis = yaxis,
-        plotWidth = plotWidth,
-        plotHeight = plotHeight)
+        size = size)
 
     analysis <- multipleresponseClass$new(
         options = options,

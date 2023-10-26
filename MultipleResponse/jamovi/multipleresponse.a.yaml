@@ -68,18 +68,18 @@ options:
           name:  cases
       default: cases
 
-    - name: plotWidth
-      type: Integer
-      title: "Width:"
-      #min: 200
-      #max: 800
-      default: 400
-
-    - name: plotHeight
-      type: Integer
-      title: "Height:"
-      #min: 150
-      #max: 600
-      default: 300
+    - name: size
+      title: Size
+      type: List
+      options:
+        - title: Small (300x200)
+          name:  small
+        - title: Medium (400x300)
+          name:  medium
+        - title: Large (600x400)
+          name:  large
+        - title: Huge (800x500)
+          name:  huge          
+      default: medium
 
 ...
