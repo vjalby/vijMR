@@ -46,7 +46,8 @@ children:
     label: Plot
     children:
       - type: LayoutBox
-        margin: large
+        stretchFactor: 1
+        style: inline
         children:
           - type: ComboBox
             name: yaxis
