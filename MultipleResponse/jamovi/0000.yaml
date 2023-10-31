@@ -1,12 +1,12 @@
 ---
 title: Table And Graph For Multiple Response Questions
 name: MultipleResponse
-version: 0.9.3
+version: 0.9.4
 jms: '1.0'
 authors:
   - Vincent Jalby
 maintainer: Vincent Jalby <vincent.jalby@unilim.fr>
-date: '2023-10-25'
+date: '2023-10-31'
 type: R
 description: >-
   SPSS like analysis for multiple response questions. Strongly inspired by 
@@ -23,5 +23,11 @@ analyses:
     menuSubgroup: Multiple Response
 usesNative: true
 minApp: 1.0.8
+datasets:
+  - name: Credit Cards
+    path: creditcards.csv
+    description: >-
+      A demonstration dataset with four dichotomous variables describing  the
+      credit cards owned by customers.
 
 ...
