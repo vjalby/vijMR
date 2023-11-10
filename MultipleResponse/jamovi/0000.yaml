@@ -1,12 +1,12 @@
 ---
 title: Table And Graph For Multiple Response Questions
 name: MultipleResponse
-version: 0.9.4
+version: 0.9.5
 jms: '1.0'
 authors:
   - Vincent Jalby
 maintainer: Vincent Jalby <vincent.jalby@unilim.fr>
-date: '2023-10-31'
+date: '2023-11-02'
 type: R
 description: >-
   SPSS like analysis for multiple response questions. Strongly inspired by 

@@ -1,33 +1,28 @@
-
-# This file is a generated template, your changes will not be overwritten
-
 multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
     "multipleresponseClass",
     inherit = multipleresponseBase,
     private = list(
         .init = function() {
+          # Add the "total" row here (to prevent flickering)
+          if (self$options$showTotal)
+              self$results$responses$addRow(rowKey='.total', values=list(var="Total"))
+        # Set the size of the plot
             image <- self$results$plot
             size <- self$options$size
-            if ( size == "small" ) {
+            if ( size == "small" )
                 image$setSize(300, 200)
-            } else if ( size == "medium" ) {
+            else if ( size == "medium" )
                 image$setSize(400,300)
-            } else if ( size == "large" ) {
+            else if ( size == "large" )
               image$setSize(600,400)
-            } else if ( size == "huge" ) {
+            else if ( size == "huge" )
               image$setSize(800,500)
-            }
         },
         .run = function() {
-            # `self$data` contains the data
-            # `self$options` contains the options
-            # `self$results` contains the results object (to populate)
-
-            if ( length(self$options$resps) < 2 )
+            if ( length(self$options$resps) < 1 )
                 return()
 
             myresult <- private$.multipleResponse(self$data, self$options$resps, self$options$endorsed, self$options$order)
-            #self$results$text$setContent( myresult$df )
 
             table <- self$results$responses
             for(i in 1:(nrow(myresult$df)-1))
@@ -39,7 +34,8 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
 
             if ( self$options$showTotal ) {
                 i <- nrow(myresult$df)
-                table$addRow("total",
+#                table$addRow("total",
+                table$setRow(rowKey=".total",
                              values=list(var="Total",
                                          freq=myresult$df[i,2],
                                          responsepercent=myresult$df[i,3],
@@ -53,7 +49,7 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
 
         },
         .plot = function(image, ggtheme, theme, ...) {  # <-- the plot function
-            if (is.null(image$state) || length(self$options$resps) < 2)
+            if (is.null(image$state))
                 return(FALSE)
 
             plotData <- image$state
@@ -80,15 +76,19 @@ multipleresponseClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Cl
             # From userfriendlyscience package
             data = data[, items]
             nrOfEndorsements = sum(data == endorsedOption, na.rm = TRUE)
-            endorsementsPerItem = colSums(data == endorsedOption, na.rm = TRUE)
-            nrOfCases = sum(!apply(apply(data, 1, is.na), 2, all))
+            if( length(items) == 1 ) {
+              endorsementsPerItem <- nrOfEndorsements
+              names(endorsementsPerItem) <- items[1]
+              nrOfCases <- sum(!is.na(data))
+            } else {
+              endorsementsPerItem = colSums(data == endorsedOption, na.rm = TRUE)
+              nrOfCases = sum(!apply(apply(data, 1, is.na), 2, all)) 
+            }
             totals = as.numeric(c(endorsementsPerItem, nrOfEndorsements))
             res <- data.frame(c(names(endorsementsPerItem), "Total"),
                               totals, (totals/nrOfEndorsements),
                               (totals/nrOfCases))
-
             names(res) <- c("Option", "Frequency", "Responses", "Cases")
-
             # Sort
             n <- length(items)
             if (order == 'decreasing') {

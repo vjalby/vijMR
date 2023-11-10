@@ -14,7 +14,6 @@ children:
           - type: VariablesListBox
             name: resps
             isTarget: true
-            ghostText: drag them here (at least 2)
   - type: Label
     label: Option Variables
     children:

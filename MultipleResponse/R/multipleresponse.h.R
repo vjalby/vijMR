@@ -112,7 +112,6 @@ multipleresponseResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
     "multipleresponseResults",
     inherit = jmvcore::Group,
     active = list(
-        text = function() private$.items[["text"]],
         responses = function() private$.items[["responses"]],
         plot = function() private$.items[["plot"]]),
     private = list(),
@@ -122,10 +121,6 @@ multipleresponseResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                 options=options,
                 name="",
                 title="Multiple Response")
-            self$add(jmvcore::Preformatted$new(
-                options=options,
-                name="text",
-                title="Multiple Response"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="responses",
@@ -209,7 +204,6 @@ multipleresponseBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
 #' @param size .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
 #'   \code{results$responses} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$plot} \tab \tab \tab \tab \tab an image \cr
 #' }

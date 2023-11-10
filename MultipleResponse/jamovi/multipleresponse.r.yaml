@@ -4,10 +4,6 @@ title: Multiple Response
 jrs:   '1.1'
 
 items:
-    - name:  text
-      title: Multiple Response
-      type:  Preformatted
-
     - name:  responses
       title: Frequencies
       type: Table
