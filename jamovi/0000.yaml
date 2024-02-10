@@ -1,0 +1,33 @@
+---
+title: Table And Graph For Multiple Response Questions
+name: MultipleResponse
+version: 1.0.0
+jms: '1.0'
+authors:
+  - Vincent Jalby
+maintainer: Vincent Jalby <vincent.jalby@unilim.fr>
+date: '2024-02-10'
+type: R
+description: >-
+  SPSS like analysis for multiple response questions. Strongly inspired by 
+  multiResponse function from  <a target="_blank" 
+  href="https://cran.r-project.org/web/packages/ufs/">ufs package</a>. Project
+  source is available at  <a href="https://github.com/vjalby/multipleresponse/"
+  target="_blank">Github</a>. The module is available in the Exploration Menu.
+analyses:
+  - title: Multiple Response
+    name: multipleresponse
+    ns: MultipleResponse
+    menuGroup: Exploration
+    menuTitle: Multiple Response
+    menuSubgroup: Multiple Response
+usesNative: true
+minApp: 1.0.8
+datasets:
+  - name: Credit Cards
+    path: creditcards.omv
+    description: >-
+      A demonstration dataset with four dichotomous variables describing  the
+      credit cards owned by customers.
+
+...

@@ -1,0 +1,48 @@
+---
+name:  multipleresponse
+title: Multiple Response
+jrs:   '1.1'
+
+items:
+    - name:  responses
+      title: Frequencies
+      type: Table
+      rows:  (resps)
+      notes: 
+        'noc': ''
+      columns:
+        - name: var
+          title: 'Options'
+          type: text
+        - name: freq
+          title: 'Counts'
+          type: integer
+          visible: (showCounts)
+        - name: responsepercent
+          title: '% of Responses'
+          type: number
+          format: pc
+          visible: (showResponses)
+        - name: casepercent
+          title: '% of Cases'
+          type: number
+          format: pc
+          visible: (showCases)
+      clearWith:
+        - resps
+        - endorsed
+        - order
+
+    - name: plot
+      title: Frequency Plot
+      type: Image
+      width:  400
+      height: 300
+      renderFun: .plot
+      clearWith:
+        - resps
+        - endorsed
+        - order
+        - yaxis
+        - size
+...
