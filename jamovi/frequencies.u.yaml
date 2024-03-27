@@ -1,0 +1,54 @@
+title: Multiple Response Frequencies
+name: frequencies
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: VariableSupplier
+    persistentItems: false
+    stretchFactor: 1
+    children:
+      - type: TargetLayoutBox
+        label: Option Variables
+        children:
+          - type: VariablesListBox
+            name: resps
+            isTarget: true
+  - type: Label
+    label: Option Variables
+    children:
+      - type: LayoutBox
+        stretchFactor: 1
+        style: inline
+        children:
+        - type: TextBox
+          name: endorsed
+          format: number
+        - type: ComboBox
+          name: order
+  - type: Label
+    label: Table
+    children:
+      - type: LayoutBox
+        stretchFactor: 1
+        style: inline
+        children:
+          - type: CheckBox
+            name: showTotal
+          - type: CheckBox
+            name: showCounts
+          - type: CheckBox
+            name: showResponses
+          - type: CheckBox
+            name: showCases
+  - type: Label
+    label: Plot
+    children:
+      - type: LayoutBox
+        stretchFactor: 1
+        style: inline
+        children:
+          - type: ComboBox
+            name: yaxis
+          - type: ComboBox
+            name: size
