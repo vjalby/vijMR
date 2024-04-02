@@ -1,18 +1,18 @@
 ---
 title: Table And Graph For Multiple Response Questions
 name: vijMR
-version: 1.0.0
+version: 1.0.1
 jms: '1.0'
 authors:
   - Vincent Jalby
 maintainer: Vincent Jalby <vincent.jalby@unilim.fr>
-date: '2024-03-27'
+date: '2024-04-25'
 type: R
 description: >-
   <p>SPSS like analysis for multiple response questions. Strongly inspired by 
   multiResponse function from  <a target="_blank" 
   href="https://cran.r-project.org/web/packages/ufs/">ufs package</a>. Project
-  source is available at  <a href="https://github.com/vjalby/multipleresponse/"
+  source is available at  <a href="https://github.com/vjalby/vijMR"
   target="_blank">Github</a>. The module is available in the Exploration
   Menu.</p> <p><i>The jamovi Team would like to add that supporting multiple
   response columns natively in the jamovi analyses. It is on our development
