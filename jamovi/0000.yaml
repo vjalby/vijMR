@@ -14,9 +14,9 @@ description: >-
   href="https://cran.r-project.org/web/packages/ufs/">ufs package</a>. Project
   source is available at  <a href="https://github.com/vjalby/vijMR"
   target="_blank">Github</a>. The module is available in the Exploration
-  Menu.</p> <p><i>The jamovi Team would like to add that supporting multiple
-  response columns natively in the jamovi analyses. It is on our development
-  roadmap. In the mean time, this module makes a great stop-gap.</i> </p>
+  Menu.</p> <p><i>The jamovi team would like to add that supporting multiple
+ response columns natively in the jamovi analyses is on our development
+ roadmap &endash; In the mean time, this module makes a great stop-gap.</i> </p>
 analyses:
   - title: Multiple Response Frequencies
     name: frequencies
