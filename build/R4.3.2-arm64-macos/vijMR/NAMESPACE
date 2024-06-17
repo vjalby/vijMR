@@ -5,3 +5,6 @@ import(jmvcore)
 
 export(frequenciesClass)
 export(frequenciesOptions)
+
+export(crosstabsClass)
+export(crosstabsOptions)

@@ -1,7 +1,7 @@
 ---
 title: Table And Graph For Multiple Response Questions
 name: vijMR
-version: 1.0.1
+version: 1.0.2
 jms: '1.0'
 authors:
   - Vincent Jalby
@@ -23,6 +23,12 @@ analyses:
     ns: vijMR
     menuGroup: Exploration
     menuTitle: Frequencies
+    menuSubgroup: vij Multiple Response
+  - title: Multiple Response Crosstabs
+    name: crosstabs
+    ns: vijMR
+    menuGroup: Exploration
+    menuTitle: Crosstabs
     menuSubgroup: vij Multiple Response
 usesNative: true
 minApp: 1.0.8

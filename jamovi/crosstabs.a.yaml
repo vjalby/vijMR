@@ -1,0 +1,58 @@
+---
+name:  crosstabs
+title: Multiple Response Crosstabs
+menuTitle: Crosstabs
+menuGroup: Exploration
+menuSubgroup: vij Multiple Response
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: resps
+      title: Option Variables
+      type: Variables
+      required: true
+      suggested:
+        - nominal
+      permitted:
+        - factor
+
+    - name: group
+      title: Grouping Variable
+      type: Variable
+
+    - name: endorsed
+      title: Counted Value
+      type: Integer
+      default: 1
+
+    - name: order
+      title: Sorting
+      type: List
+      options:
+        - title: Decreasing
+          name:  decreasing
+        - title: Increasing
+          name:  increasing
+        - title: None
+          name:  none
+      default: decreasing
+
+    - name: computedValues
+      title: Values
+      type: List
+      options:
+        - title: Count
+          name:  count
+        - title: "% of Responses"
+          name:  responses
+        - title: "% of Cases"
+          name:  cases
+        - title: "% within rows"
+          name:  options
+      default: count
+      
+...
