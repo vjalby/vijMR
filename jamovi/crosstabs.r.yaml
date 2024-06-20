@@ -4,16 +4,10 @@ title: Mutible Response Crosstab
 jrs:   '1.1'
 
 items:
-    - name:  text
-      title: MR Crosstabs Text
-      type:  Preformatted
-
     - name:  crosstab
       title: Crosstab
       type: Table
       rows:  (resps)
-      notes: 
-        'noc': ''
       columns:
         - name: var
           title: 'Options'
@@ -22,5 +16,24 @@ items:
         - resps
         - endorsed
         - order
+        - group
+        - computedValues
+      
+    - name: plot
+      title: Frequency Plot
+      type: Image
+      width:  400
+      height: 300
+      renderFun: .plot
+      clearWith:
+        - resps
+        - endorsed
+        - order
+        - group
+        - computedValues
+        - bartype
+        - xaxis
+        - size
+
 
 ...

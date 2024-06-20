@@ -10,7 +10,10 @@ crosstabsOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             group = NULL,
             endorsed = 1,
             order = "decreasing",
-            computedValues = "count", ...) {
+            computedValues = "count",
+            xaxis = "xrows",
+            bartype = "dodge",
+            size = "medium", ...) {
 
             super$initialize(
                 package="vijMR",
@@ -50,33 +53,65 @@ crosstabsOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "cases",
                     "options"),
                 default="count")
+            private$..xaxis <- jmvcore::OptionList$new(
+                "xaxis",
+                xaxis,
+                options=list(
+                    "xrows",
+                    "xcols"),
+                default="xrows")
+            private$..bartype <- jmvcore::OptionList$new(
+                "bartype",
+                bartype,
+                options=list(
+                    "dodge",
+                    "stack"),
+                default="dodge")
+            private$..size <- jmvcore::OptionList$new(
+                "size",
+                size,
+                options=list(
+                    "small",
+                    "medium",
+                    "large",
+                    "huge"),
+                default="medium")
 
             self$.addOption(private$..resps)
             self$.addOption(private$..group)
             self$.addOption(private$..endorsed)
             self$.addOption(private$..order)
             self$.addOption(private$..computedValues)
+            self$.addOption(private$..xaxis)
+            self$.addOption(private$..bartype)
+            self$.addOption(private$..size)
         }),
     active = list(
         resps = function() private$..resps$value,
         group = function() private$..group$value,
         endorsed = function() private$..endorsed$value,
         order = function() private$..order$value,
-        computedValues = function() private$..computedValues$value),
+        computedValues = function() private$..computedValues$value,
+        xaxis = function() private$..xaxis$value,
+        bartype = function() private$..bartype$value,
+        size = function() private$..size$value),
     private = list(
         ..resps = NA,
         ..group = NA,
         ..endorsed = NA,
         ..order = NA,
-        ..computedValues = NA)
+        ..computedValues = NA,
+        ..xaxis = NA,
+        ..bartype = NA,
+        ..size = NA)
 )
 
 crosstabsResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "crosstabsResults",
     inherit = jmvcore::Group,
     active = list(
-        text = function() private$.items[["text"]],
-        crosstab = function() private$.items[["crosstab"]]),
+        crosstab = function() private$.items[["crosstab"]],
+        plot = function() private$.items[["plot"]]),
     private = list(),
     public=list(
         initialize=function(options) {
@@ -84,17 +119,11 @@ crosstabsResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 options=options,
                 name="",
                 title="Mutible Response Crosstab")
-            self$add(jmvcore::Preformatted$new(
-                options=options,
-                name="text",
-                title="MR Crosstabs Text"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="crosstab",
                 title="Crosstab",
                 rows="(resps)",
-                notes=list(
-                    `noc`=""),
                 columns=list(
                     list(
                         `name`="var", 
@@ -103,7 +132,25 @@ crosstabsResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 clearWith=list(
                     "resps",
                     "endorsed",
-                    "order")))}))
+                    "order",
+                    "group",
+                    "computedValues")))
+            self$add(jmvcore::Image$new(
+                options=options,
+                name="plot",
+                title="Frequency Plot",
+                width=400,
+                height=300,
+                renderFun=".plot",
+                clearWith=list(
+                    "resps",
+                    "endorsed",
+                    "order",
+                    "group",
+                    "computedValues",
+                    "bartype",
+                    "xaxis",
+                    "size")))}))
 
 crosstabsBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "crosstabsBase",
@@ -135,10 +182,13 @@ crosstabsBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' @param endorsed .
 #' @param order .
 #' @param computedValues .
+#' @param xaxis .
+#' @param bartype .
+#' @param size .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
 #'   \code{results$crosstab} \tab \tab \tab \tab \tab a table \cr
+#'   \code{results$plot} \tab \tab \tab \tab \tab an image \cr
 #' }
 #'
 #' Tables can be converted to data frames with \code{asDF} or \code{\link{as.data.frame}}. For example:
@@ -154,7 +204,10 @@ crosstabs <- function(
     group,
     endorsed = 1,
     order = "decreasing",
-    computedValues = "count") {
+    computedValues = "count",
+    xaxis = "xrows",
+    bartype = "dodge",
+    size = "medium") {
 
     if ( ! requireNamespace("jmvcore", quietly=TRUE))
         stop("crosstabs requires jmvcore to be installed (restart may be required)")
@@ -174,7 +227,10 @@ crosstabs <- function(
         group = group,
         endorsed = endorsed,
         order = order,
-        computedValues = computedValues)
+        computedValues = computedValues,
+        xaxis = xaxis,
+        bartype = bartype,
+        size = size)
 
     analysis <- crosstabsClass$new(
         options = options,

@@ -51,8 +51,42 @@ options:
           name:  responses
         - title: "% of Cases"
           name:  cases
-        - title: "% within rows"
+        - title: "% by Row"
           name:  options
       default: count
+
+    - name: xaxis
+      title: X-axis
+      type: List
+      options:
+        - name: xrows
+          title: "Rows (Options)"
+        - name: xcols
+          title: "Columns (Groups)"
+      default: xrows
+      
+    - name: bartype
+      title: "Bar Type"
+      type: List
+      options:
+        - title: "Side by side"
+          name:  dodge
+        - title: Stacked
+          name:  "stack"
+      default: dodge
+
+    - name: size
+      title: Size
+      type: List
+      options:
+        - title: Small (300x200)
+          name:  small
+        - title: Medium (400x300)
+          name:  medium
+        - title: Large (600x400)
+          name:  large
+        - title: Huge (800x500)
+          name:  huge          
+      default: medium
       
 ...

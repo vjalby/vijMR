@@ -37,3 +37,18 @@ children:
     children:
       - type: ComboBox
         name: computedValues
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: ComboBox
+        name: xaxis
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: ComboBox
+        name: bartype
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: ComboBox
+        name: size
