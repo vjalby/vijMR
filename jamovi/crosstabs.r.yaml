@@ -18,9 +18,11 @@ items:
         - order
         - group
         - computedValues
+        - optionname
+        - showNbOfCases
       
     - name: plot
-      title: Frequency Plot
+      title: Plots
       type: Image
       width:  400
       height: 300
@@ -34,6 +36,10 @@ items:
         - bartype
         - xaxis
         - size
+        - optionname
 
+    - name:  text
+      title: Debug Output
+      type:  Preformatted
 
 ...

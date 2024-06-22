@@ -9,9 +9,13 @@ crosstabsOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             resps = NULL,
             group = NULL,
             endorsed = 1,
+            optionname = "Options",
             order = "decreasing",
             computedValues = "count",
-            xaxis = "xrows",
+            totalRow = TRUE,
+            showNbOfCases = TRUE,
+            overall = TRUE,
+            xaxis = "xcols",
             bartype = "dodge",
             size = "medium", ...) {
 
@@ -31,11 +35,20 @@ crosstabsOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "factor"))
             private$..group <- jmvcore::OptionVariable$new(
                 "group",
-                group)
+                group,
+                suggested=list(
+                    "nominal",
+                    "ordinal"),
+                permitted=list(
+                    "factor"))
             private$..endorsed <- jmvcore::OptionInteger$new(
                 "endorsed",
                 endorsed,
                 default=1)
+            private$..optionname <- jmvcore::OptionString$new(
+                "optionname",
+                optionname,
+                default="Options")
             private$..order <- jmvcore::OptionList$new(
                 "order",
                 order,
@@ -53,13 +66,25 @@ crosstabsOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "cases",
                     "options"),
                 default="count")
+            private$..totalRow <- jmvcore::OptionBool$new(
+                "totalRow",
+                totalRow,
+                default=TRUE)
+            private$..showNbOfCases <- jmvcore::OptionBool$new(
+                "showNbOfCases",
+                showNbOfCases,
+                default=TRUE)
+            private$..overall <- jmvcore::OptionBool$new(
+                "overall",
+                overall,
+                default=TRUE)
             private$..xaxis <- jmvcore::OptionList$new(
                 "xaxis",
                 xaxis,
                 options=list(
                     "xrows",
                     "xcols"),
-                default="xrows")
+                default="xcols")
             private$..bartype <- jmvcore::OptionList$new(
                 "bartype",
                 bartype,
@@ -80,8 +105,12 @@ crosstabsOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$.addOption(private$..resps)
             self$.addOption(private$..group)
             self$.addOption(private$..endorsed)
+            self$.addOption(private$..optionname)
             self$.addOption(private$..order)
             self$.addOption(private$..computedValues)
+            self$.addOption(private$..totalRow)
+            self$.addOption(private$..showNbOfCases)
+            self$.addOption(private$..overall)
             self$.addOption(private$..xaxis)
             self$.addOption(private$..bartype)
             self$.addOption(private$..size)
@@ -90,8 +119,12 @@ crosstabsOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         resps = function() private$..resps$value,
         group = function() private$..group$value,
         endorsed = function() private$..endorsed$value,
+        optionname = function() private$..optionname$value,
         order = function() private$..order$value,
         computedValues = function() private$..computedValues$value,
+        totalRow = function() private$..totalRow$value,
+        showNbOfCases = function() private$..showNbOfCases$value,
+        overall = function() private$..overall$value,
         xaxis = function() private$..xaxis$value,
         bartype = function() private$..bartype$value,
         size = function() private$..size$value),
@@ -99,8 +132,12 @@ crosstabsOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         ..resps = NA,
         ..group = NA,
         ..endorsed = NA,
+        ..optionname = NA,
         ..order = NA,
         ..computedValues = NA,
+        ..totalRow = NA,
+        ..showNbOfCases = NA,
+        ..overall = NA,
         ..xaxis = NA,
         ..bartype = NA,
         ..size = NA)
@@ -111,7 +148,8 @@ crosstabsResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     inherit = jmvcore::Group,
     active = list(
         crosstab = function() private$.items[["crosstab"]],
-        plot = function() private$.items[["plot"]]),
+        plot = function() private$.items[["plot"]],
+        text = function() private$.items[["text"]]),
     private = list(),
     public=list(
         initialize=function(options) {
@@ -134,11 +172,13 @@ crosstabsResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "endorsed",
                     "order",
                     "group",
-                    "computedValues")))
+                    "computedValues",
+                    "optionname",
+                    "showNbOfCases")))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot",
-                title="Frequency Plot",
+                title="Plots",
                 width=400,
                 height=300,
                 renderFun=".plot",
@@ -150,7 +190,12 @@ crosstabsResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "computedValues",
                     "bartype",
                     "xaxis",
-                    "size")))}))
+                    "size",
+                    "optionname")))
+            self$add(jmvcore::Preformatted$new(
+                options=options,
+                name="text",
+                title="Debug Output"))}))
 
 crosstabsBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "crosstabsBase",
@@ -180,8 +225,12 @@ crosstabsBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' @param resps .
 #' @param group .
 #' @param endorsed .
+#' @param optionname .
 #' @param order .
 #' @param computedValues .
+#' @param totalRow .
+#' @param showNbOfCases .
+#' @param overall .
 #' @param xaxis .
 #' @param bartype .
 #' @param size .
@@ -189,6 +238,7 @@ crosstabsBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' \tabular{llllll}{
 #'   \code{results$crosstab} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$plot} \tab \tab \tab \tab \tab an image \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
 #' }
 #'
 #' Tables can be converted to data frames with \code{asDF} or \code{\link{as.data.frame}}. For example:
@@ -203,9 +253,13 @@ crosstabs <- function(
     resps,
     group,
     endorsed = 1,
+    optionname = "Options",
     order = "decreasing",
     computedValues = "count",
-    xaxis = "xrows",
+    totalRow = TRUE,
+    showNbOfCases = TRUE,
+    overall = TRUE,
+    xaxis = "xcols",
     bartype = "dodge",
     size = "medium") {
 
@@ -221,13 +275,18 @@ crosstabs <- function(
             `if`( ! missing(group), group, NULL))
 
     for (v in resps) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in group) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
 
     options <- crosstabsOptions$new(
         resps = resps,
         group = group,
         endorsed = endorsed,
+        optionname = optionname,
         order = order,
         computedValues = computedValues,
+        totalRow = totalRow,
+        showNbOfCases = showNbOfCases,
+        overall = overall,
         xaxis = xaxis,
         bartype = bartype,
         size = size)

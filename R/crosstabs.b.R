@@ -7,12 +7,16 @@ crosstabsClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
     private = list(
         .init = function() {
             # Add the "total" row here (to prevent flickering)
-            self$results$crosstab$addRow(rowKey='.total', values=list(var="Total"))
-            self$results$crosstab$addFormat(rowKey=".total", col=1, Cell.BEGIN_GROUP)
-            if ( self$options$computedValues == "count" || self$options$computedValues == "options" ) {
+            if ( self$options$totalRow ) {
+              self$results$crosstab$addRow(rowKey='.total', values=list(var="Total"))
+              self$results$crosstab$addFormat(rowKey=".total", col=1, Cell.BEGIN_GROUP)
+            }
+            if ( self$options$showNbOfCases && ( self$options$computedValues == "count" || self$options$computedValues == "options") ) {
               self$results$crosstab$addRow(rowKey='.nbofcases', values=list(var="Number of cases"))
               self$results$crosstab$addFormat(rowKey=".nbofcases", col=1, Cell.BEGIN_GROUP)
             }
+            # Set custom name for options column
+            self$results$crosstab$getColumn('var')$setTitle(self$options$optionname)
             # Set the size of the plot
             image <- self$results$plot
             size <- self$options$size
@@ -48,7 +52,7 @@ crosstabsClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                 groups <- self$data[,self$options$group]
                 for(i in 1:nlevels(groups))
                   table$addColumn(name = levels(groups)[i], type=cellType, format=cellFormat, superTitle=self$options$group)
-                table$addColumn(name = "Total", title="Overall", type=cellType, format=cellFormat)
+                table$addColumn(name = "Total", title="Overall", type=cellType, format=cellFormat, visible=self$options$overall)
             }
             # Exceptions
             if ( length(self$options$resps) < 1 )
@@ -66,9 +70,9 @@ crosstabsClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
             for(i in 1:(nrow(crosstab)-2))
               table$setRow(rowNo=i,
                            values = c(var=rownames(crosstab)[i], crosstab[i,]))
-            table$setRow(rowKey='.total',
-                         values = crosstab[i+1,])
-            if ( self$options$computedValues == "count" || self$options$computedValues == "options" ) {
+            if ( self$options$totalRow )
+              table$setRow(rowKey='.total', values = crosstab[i+1,])
+            if ( self$options$showNbOfCases && (self$options$computedValues == "count" || self$options$computedValues == "options") ) {
               table$setRow(rowKey='.nbofcases', values = crosstab[i+2,])
             }
             image <- self$results$plot
@@ -91,11 +95,24 @@ crosstabsClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
             zVarName <- ensym(groupVar)
           }
           
+          
           #plotData <- image$state
           plotData <- cbind("Options" = factor(rownames(image$state), levels=rownames(image$state)),image$state)
+          #plotData[,groupVar] <- factor(plotData[,groupVar], levels=levels(plotData[,groupVar]))
           plotData <- pivot_longer(plotData, cols=colnames(image$state), names_to = self$options$group, values_to = "Count")
-          
-          plot <- ggplot(plotData, aes(x=!!xVarName, y=Count)) +  geom_col( aes(fill=!!zVarName), position = self$options$bartype) + ggtheme
+          # 
+          plotData[[self$options$group]] <- factor(plotData[[self$options$group]], levels = names(image$state) )
+          if (self$options$xaxis == "xcols") {
+            plot <- ggplot(plotData, aes(x=!!xVarName, y=Count)) + 
+              geom_col( aes(fill=!!zVarName), position = self$options$bartype) + 
+              labs(fill = self$options$optionname) + ggtheme
+              #scale_x_discrete(limits=names(image$state)) + ggtheme
+          } else {
+            plot <- ggplot(plotData, aes(x=!!xVarName, y=Count)) + 
+              geom_col( aes(fill=!!zVarName), position = self$options$bartype) +  
+              labs(x = self$options$optionname) + ggtheme            
+          }
+          #plot + 
           if ( self$options$computedValues == "responses" ) {
             plot <- plot + labs(y="% of Responses") + scale_y_continuous(labels=percent_format())
           } else if ( self$options$computedValues == "cases" ) {
@@ -103,6 +120,9 @@ crosstabsClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
           } else     if ( self$options$computedValues == "options" ) {
             plot <- plot + labs(y="% within groups") + scale_y_continuous(labels=percent_format())
           }
+          
+          #self$results$text$setContent(plotData)
+          self$results$text$setContent(plotData)
             
           return(plot)
           

@@ -23,12 +23,22 @@ options:
     - name: group
       title: Grouping Variable
       type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
 
     - name: endorsed
       title: Counted Value
       type: Integer
       default: 1
 
+    - name: optionname
+      title: Option name
+      type: String
+      default: 'Options'
+      
     - name: order
       title: Sorting
       type: List
@@ -55,15 +65,30 @@ options:
           name:  options
       default: count
 
+    - name: totalRow
+      title: "Total Row"
+      type: Bool
+      default: true
+      
+    - name: showNbOfCases
+      title: "Number of cases"
+      type: Bool
+      default: true
+      
+    - name: overall
+      title: "Overall (all groups)"
+      type: Bool
+      default: true   
+      
     - name: xaxis
-      title: X-axis
+      title: X-Axis
       type: List
       options:
         - name: xrows
           title: "Rows (Options)"
         - name: xcols
           title: "Columns (Groups)"
-      default: xrows
+      default: xcols
       
     - name: bartype
       title: "Bar Type"
@@ -71,8 +96,8 @@ options:
       options:
         - title: "Side by side"
           name:  dodge
-        - title: Stacked
-          name:  "stack"
+        - title: "Stacked"
+          name:  stack
       default: dodge
 
     - name: size
