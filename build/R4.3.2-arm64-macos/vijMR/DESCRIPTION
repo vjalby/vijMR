@@ -10,4 +10,4 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Imports: jmvcore (>= 0.8.5), R6, ggplot2, scales
-Built: R 4.3.2; ; 2024-06-22 21:44:52 UTC; unix
+Built: R 4.3.2; ; 2024-07-01 20:40:20 UTC; unix

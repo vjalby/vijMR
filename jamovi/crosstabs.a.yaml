@@ -101,7 +101,7 @@ options:
       default: dodge
 
     - name: size
-      title: Size
+      title: ""
       type: List
       options:
         - title: Small (300x200)

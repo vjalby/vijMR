@@ -8,6 +8,7 @@ frequenciesOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
         initialize = function(
             resps = NULL,
             endorsed = 1,
+            optionname = "Options",
             order = "decreasing",
             showTotal = TRUE,
             showCounts = TRUE,
@@ -34,6 +35,10 @@ frequenciesOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
                 "endorsed",
                 endorsed,
                 default=1)
+            private$..optionname <- jmvcore::OptionString$new(
+                "optionname",
+                optionname,
+                default="Options")
             private$..order <- jmvcore::OptionList$new(
                 "order",
                 order,
@@ -78,6 +83,7 @@ frequenciesOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
 
             self$.addOption(private$..resps)
             self$.addOption(private$..endorsed)
+            self$.addOption(private$..optionname)
             self$.addOption(private$..order)
             self$.addOption(private$..showTotal)
             self$.addOption(private$..showCounts)
@@ -89,6 +95,7 @@ frequenciesOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
     active = list(
         resps = function() private$..resps$value,
         endorsed = function() private$..endorsed$value,
+        optionname = function() private$..optionname$value,
         order = function() private$..order$value,
         showTotal = function() private$..showTotal$value,
         showCounts = function() private$..showCounts$value,
@@ -99,6 +106,7 @@ frequenciesOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
     private = list(
         ..resps = NA,
         ..endorsed = NA,
+        ..optionname = NA,
         ..order = NA,
         ..showTotal = NA,
         ..showCounts = NA,
@@ -195,6 +203,7 @@ frequenciesBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' @param data .
 #' @param resps .
 #' @param endorsed .
+#' @param optionname .
 #' @param order .
 #' @param showTotal .
 #' @param showCounts .
@@ -219,6 +228,7 @@ frequencies <- function(
     data,
     resps,
     endorsed = 1,
+    optionname = "Options",
     order = "decreasing",
     showTotal = TRUE,
     showCounts = TRUE,
@@ -241,6 +251,7 @@ frequencies <- function(
     options <- frequenciesOptions$new(
         resps = resps,
         endorsed = endorsed,
+        optionname = optionname,
         order = order,
         showTotal = showTotal,
         showCounts = showCounts,

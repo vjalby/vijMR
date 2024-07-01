@@ -118,7 +118,7 @@ crosstabsClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
           } else if ( self$options$computedValues == "cases" ) {
             plot <- plot + labs(y="% of Cases") + scale_y_continuous(labels=percent_format())
           } else     if ( self$options$computedValues == "options" ) {
-            plot <- plot + labs(y="% within groups") + scale_y_continuous(labels=percent_format())
+            plot <- plot + labs(y=paste("% within", self$options$optionname)) + scale_y_continuous(labels=percent_format())
           }
           
           #self$results$text$setContent(plotData)
