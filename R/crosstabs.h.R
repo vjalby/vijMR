@@ -148,8 +148,7 @@ crosstabsResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     inherit = jmvcore::Group,
     active = list(
         crosstab = function() private$.items[["crosstab"]],
-        plot = function() private$.items[["plot"]],
-        text = function() private$.items[["text"]]),
+        plot = function() private$.items[["plot"]]),
     private = list(),
     public=list(
         initialize=function(options) {
@@ -191,11 +190,7 @@ crosstabsResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "bartype",
                     "xaxis",
                     "size",
-                    "optionname")))
-            self$add(jmvcore::Preformatted$new(
-                options=options,
-                name="text",
-                title="Debug Output"))}))
+                    "optionname")))}))
 
 crosstabsBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "crosstabsBase",
@@ -238,7 +233,6 @@ crosstabsBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' \tabular{llllll}{
 #'   \code{results$crosstab} \tab \tab \tab \tab \tab a table \cr
 #'   \code{results$plot} \tab \tab \tab \tab \tab an image \cr
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
 #' }
 #'
 #' Tables can be converted to data frames with \code{asDF} or \code{\link{as.data.frame}}. For example:

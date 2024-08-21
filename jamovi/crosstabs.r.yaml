@@ -38,8 +38,4 @@ items:
         - size
         - optionname
 
-    - name:  text
-      title: Debug Output
-      type:  Preformatted
-
 ...
