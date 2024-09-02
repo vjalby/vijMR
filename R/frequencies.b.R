@@ -6,6 +6,8 @@ frequenciesClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
     inherit = frequenciesBase,
     private = list(
         .init = function() {
+          # Set custom name for options column
+          self$results$responses$getColumn('var')$setTitle(self$options$optionname)
           # Add the "total" row here (to prevent flickering)
           if (self$options$showTotal)
               self$results$responses$addRow(rowKey='.total', values=list(var="Total"))

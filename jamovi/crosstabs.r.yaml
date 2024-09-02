@@ -1,0 +1,41 @@
+---
+name:  crosstabs
+title: Mutible Response Crosstab
+jrs:   '1.1'
+
+items:
+    - name:  crosstab
+      title: Crosstab
+      type: Table
+      rows:  (resps)
+      columns:
+        - name: var
+          title: 'Options'
+          type: text
+      clearWith:
+        - resps
+        - endorsed
+        - order
+        - group
+        - computedValues
+        - optionname
+        - showNbOfCases
+      
+    - name: plot
+      title: Plots
+      type: Image
+      width:  400
+      height: 300
+      renderFun: .plot
+      clearWith:
+        - resps
+        - endorsed
+        - order
+        - group
+        - computedValues
+        - bartype
+        - xaxis
+        - size
+        - optionname
+
+...

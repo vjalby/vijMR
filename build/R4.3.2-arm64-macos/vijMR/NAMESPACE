@@ -2,6 +2,10 @@ exportPattern("^[[:alpha:]]+")
 import(ggplot2)
 import(scales)
 import(jmvcore)
+import(tidyr)
 
 export(frequenciesClass)
 export(frequenciesOptions)
+
+export(crosstabsClass)
+export(crosstabsOptions)

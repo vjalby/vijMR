@@ -1,0 +1,166 @@
+title: Multiple Response Crosstabs
+name: crosstabs
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: VariableSupplier
+    persistentItems: false
+    stretchFactor: 1
+    children:
+      - type: TargetLayoutBox
+        label: Option Variables
+        children:
+          - type: VariablesListBox
+            name: resps
+            isTarget: true
+      - type: TargetLayoutBox
+        label: Grouping Variable
+        children:
+          - type: VariablesListBox
+            name: group
+            maxItemCount: 1
+            isTarget: true
+  - type: Label
+    label: Option Variables
+    children:
+      - type: LayoutBox
+        stretchFactor: 1
+        style: inline
+        children:
+          - type: TextBox
+            name: endorsed
+            format: number
+            stretchFactor: 1
+          - type: TextBox
+            name: optionname
+            format: string
+            stretchFactor: 1
+  - type: LayoutBox
+    margin: large
+    stretchFactor: 1
+    children:
+      - type: LayoutBox
+        cell:
+          column: 0
+          row: 0
+        stretchFactor: 1
+        children:
+          - type: Label
+            label: Table
+            children:
+              - type: CheckBox
+                name: showNbOfCases
+              - type: CheckBox
+                name: totalRow
+              - type: CheckBox
+                name: overall
+      - type: LayoutBox
+        cell:
+          column: 1
+          row: 0
+        stretchFactor: 1
+        children:
+          - type: Label
+            label: Values
+            children:
+              - type: RadioButton
+                name: computedValues_count
+                optionName: computedValues
+                optionPart: count
+                label: Count
+              - type: RadioButton
+                name: computedValues_responses
+                optionName: computedValues
+                optionPart: responses
+                label: '% of Responses'
+              - type: RadioButton
+                name: computedValues_cases
+                optionName: computedValues
+                optionPart: cases
+                label: '% of Cases'
+              - type: RadioButton
+                name: computedValues_options
+                optionName: computedValues
+                optionPart: options
+                label: '% by row'
+      - type: LayoutBox
+        cell:
+          column: 2
+          row: 0
+        stretchFactor: 1
+        children:
+          - type: Label
+            label: Sorting
+            children:
+              - type: RadioButton
+                name: order_increasing
+                optionName: order
+                optionPart: increasing
+                label: Increasing
+              - type: RadioButton
+                name: order_decreasing
+                optionName: order
+                optionPart: decreasing
+                label: Decreasing
+              - type: RadioButton
+                name: order_none
+                optionName: order
+                optionPart: none
+                label: None
+  - type: CollapseBox
+    label: Plots
+    collapsed: false
+    stretchFactor: 1
+    children:
+      - type: LayoutBox
+        margin: large
+        stretchFactor: 1
+        children:
+          - type: LayoutBox
+            cell:
+              column: 0
+              row: 0
+            stretchFactor: 1
+            children:
+              - type: Label
+                label: "Bar Type"
+                children:
+                  - type: RadioButton
+                    name: bartype_dodge
+                    optionName: bartype
+                    optionPart: dodge
+                    label: "Side by side"
+                  - type: RadioButton
+                    name: bartype_stack
+                    optionName: bartype
+                    optionPart: stack
+                    label: "Stacked"
+          - type: LayoutBox
+            cell:
+              column: 1
+              row: 0
+            stretchFactor: 1
+            children:
+              - type: Label
+                label: "X-Axis"
+                children:
+                  - type: RadioButton
+                    name: xaxis_xrows
+                    optionName: xaxis
+                    optionPart: xrows
+                    label: "Rows (Options)"
+                  - type: RadioButton
+                    name: xaxis_xcols
+                    optionName: xaxis
+                    optionPart: xcols
+                    label: "Columns (Groups)"                    
+          - type: Label
+            label: "Plot Size"
+            children:
+              - type: LayoutBox
+                stretchFactor: 1
+                style: inline
+                children:
+                  - type: ComboBox
+                    name: size

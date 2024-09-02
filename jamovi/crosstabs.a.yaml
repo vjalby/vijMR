@@ -1,7 +1,7 @@
 ---
-name:  frequencies
-title: Multiple Response Frequencies
-menuTitle: Frequencies
+name:  crosstabs
+title: Multiple Response Crosstabs
+menuTitle: Crosstabs
 menuGroup: Exploration
 menuSubgroup: vij Multiple Response
 version: '1.0.0'
@@ -17,6 +17,15 @@ options:
       required: true
       suggested:
         - nominal
+      permitted:
+        - factor
+
+    - name: group
+      title: Grouping Variable
+      type: Variable
+      suggested:
+        - nominal
+        - ordinal
       permitted:
         - factor
 
@@ -42,37 +51,54 @@ options:
           name:  none
       default: decreasing
 
-    - name: showTotal
-      title: Total
-      type: Bool
-      default: true
-
-    - name: showCounts
-      title: Counts
-      type: Bool
-      default: true
- 
-    - name: showResponses
-      title: "% of Responses"
-      type: Bool
-      default: true
-
-    - name: showCases
-      title: "% of Cases"
-      type: Bool
-      default: true
-
-    - name: yaxis
-      title: Y-Axis
+    - name: computedValues
+      title: Values
       type: List
       options:
-        - title: Counts
-          name:  counts
-        - title: '% of Responses'
+        - title: Count
+          name:  count
+        - title: "% of Responses"
           name:  responses
-        - title: '% of Cases'
+        - title: "% of Cases"
           name:  cases
-      default: cases
+        - title: "% by Row"
+          name:  options
+      default: count
+
+    - name: totalRow
+      title: "Total Row"
+      type: Bool
+      default: true
+      
+    - name: showNbOfCases
+      title: "Number of cases"
+      type: Bool
+      default: true
+      
+    - name: overall
+      title: "Overall (all groups)"
+      type: Bool
+      default: true   
+      
+    - name: xaxis
+      title: X-Axis
+      type: List
+      options:
+        - name: xrows
+          title: "Rows (Options)"
+        - name: xcols
+          title: "Columns (Groups)"
+      default: xcols
+      
+    - name: bartype
+      title: "Bar Type"
+      type: List
+      options:
+        - title: "Side by side"
+          name:  dodge
+        - title: "Stacked"
+          name:  stack
+      default: dodge
 
     - name: size
       title: ""
@@ -87,5 +113,5 @@ options:
         - title: Huge (800x500)
           name:  huge          
       default: medium
-
+      
 ...
