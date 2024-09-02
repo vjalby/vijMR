@@ -1,12 +1,12 @@
 ---
 title: Table And Graph For Multiple Response Questions
 name: vijMR
-version: 1.9.4
+version: 2.0.0
 jms: '1.0'
 authors:
   - Vincent Jalby
 maintainer: Vincent Jalby <vincent.jalby@unilim.fr>
-date: '2024-06-22'
+date: '2024-09-02'
 type: R
 description: >-
   <p>SPSS like analysis for multiple response questions. Strongly inspired by 
