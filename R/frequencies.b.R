@@ -48,7 +48,7 @@ frequenciesClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                 table$addFormat(rowKey=".total", col=1, Cell.BEGIN_GROUP)
             }
 
-            table$setNote('noc', paste("Number of cases:", myresult$nrOfCases) , init=FALSE)
+            table$setNote('noc', paste(.("Number of cases:"), myresult$nrOfCases) , init=FALSE)
 
             image <- self$results$plot
             image$setState(myresult$df[1:(nrow(myresult$df)-1),])
@@ -65,12 +65,12 @@ frequenciesClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
 
             if ( self$options$yaxis == "responses") {
                 plot <- ggplot(plotData, aes(Option, Responses )) +
-                    labs(y="% of Responses") + scale_y_continuous(labels=percent_format())
+                    labs(y=.("% of Responses")) + scale_y_continuous(labels=percent_format())
             } else if ( self$options$yaxis == "cases") {
                 plot <- ggplot(plotData, aes(Option, Cases )) +
-                    labs(y="% of Cases") + scale_y_continuous(labels=percent_format())
+                    labs(y=.("% of Cases")) + scale_y_continuous(labels=percent_format())
             } else {
-                plot <- ggplot(plotData, aes(Option, Frequency )) + labs(y="Counts")
+                plot <- ggplot(plotData, aes(Option, Frequency )) + labs(y=.("Counts"))
             }
 
             plot <- plot + geom_col(fill=theme$color[2]) + labs(x="")  + ggtheme

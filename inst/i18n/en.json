@@ -1,0 +1,175 @@
+{
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "plural_forms": "nplurals=2; plural=(n != 1)",
+                "lang": "en"
+            },
+            "% by Row": [
+                ""
+            ],
+            "% by row": [
+                ""
+            ],
+            "% of Cases": [
+                ""
+            ],
+            "% of Responses": [
+                ""
+            ],
+            "% within": [
+                ""
+            ],
+            "<p>SPSS like analysis for multiple response questions. Strongly inspired by  multiResponse function from  <a target=\"_blank\"  href=\"https://cran.r-project.org/web/packages/ufs/\">ufs package</a>. Project source is available at  <a href=\"https://github.com/vjalby/vijMR\" target=\"_blank\">Github</a>. The module is available in the Exploration Menu.</p> <p><i>The jamovi team would like to add that supporting multiple response columns natively in the jamovi analyses is on our development  roadmap &ndash; In the mean time, this module makes a great stop-gap.</i> </p>": [
+                ""
+            ],
+            "A demonstration dataset with four dichotomous variables describing  the credit cards owned by customers.": [
+                ""
+            ],
+            "Bar Type": [
+                ""
+            ],
+            "Columns (Groups)": [
+                ""
+            ],
+            "Count": [
+                ""
+            ],
+            "Counted Value": [
+                ""
+            ],
+            "Counts": [
+                ""
+            ],
+            "Credit Cards": [
+                ""
+            ],
+            "Crosstab": [
+                ""
+            ],
+            "Crosstab (% by row)": [
+                ""
+            ],
+            "Crosstab (% of Cases)": [
+                ""
+            ],
+            "Crosstab (% of Responses)": [
+                ""
+            ],
+            "Crosstabs": [
+                ""
+            ],
+            "Decreasing": [
+                ""
+            ],
+            "Exploration": [
+                ""
+            ],
+            "Frequencies": [
+                ""
+            ],
+            "Frequency Plot": [
+                ""
+            ],
+            "Grouping Variable": [
+                ""
+            ],
+            "Huge (800x500)": [
+                ""
+            ],
+            "Increasing": [
+                ""
+            ],
+            "Large (600x400)": [
+                ""
+            ],
+            "Medium (400x300)": [
+                ""
+            ],
+            "Multiple Response Crosstabs": [
+                ""
+            ],
+            "Multiple Response Frequencies": [
+                ""
+            ],
+            "Mutible Response Crosstab": [
+                ""
+            ],
+            "None": [
+                ""
+            ],
+            "Number of cases": [
+                ""
+            ],
+            "Number of cases:": [
+                ""
+            ],
+            "Option name": [
+                ""
+            ],
+            "Option Variables": [
+                ""
+            ],
+            "Options": [
+                ""
+            ],
+            "Overall": [
+                ""
+            ],
+            "Overall (all groups)": [
+                ""
+            ],
+            "Plot": [
+                ""
+            ],
+            "Plot Size": [
+                ""
+            ],
+            "Plots": [
+                ""
+            ],
+            "Rows (Options)": [
+                ""
+            ],
+            "Side by side": [
+                ""
+            ],
+            "Small (300x200)": [
+                ""
+            ],
+            "Sorting": [
+                ""
+            ],
+            "Stacked": [
+                ""
+            ],
+            "Table": [
+                ""
+            ],
+            "Table And Graph For Multiple Response Questions": [
+                ""
+            ],
+            "Total": [
+                ""
+            ],
+            "Total Row": [
+                ""
+            ],
+            "Values": [
+                ""
+            ],
+            "vij Multiple Response": [
+                ""
+            ],
+            "X-Axis": [
+                ""
+            ],
+            "Y-Axis": [
+                ""
+            ]
+        }
+    },
+    "code": "en"
+}

@@ -12,7 +12,7 @@ crosstabsClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
               self$results$crosstab$addFormat(rowKey=".total", col=1, Cell.BEGIN_GROUP)
             }
             if ( self$options$showNbOfCases && ( self$options$computedValues == "count" || self$options$computedValues == "options") ) {
-              self$results$crosstab$addRow(rowKey='.nbofcases', values=list(var="Number of cases"))
+              self$results$crosstab$addRow(rowKey='.nbofcases', values=list(var=.("Number of cases")))
               self$results$crosstab$addFormat(rowKey=".nbofcases", col=1, Cell.BEGIN_GROUP)
             }
             # Set custom name for options column
@@ -41,18 +41,18 @@ crosstabsClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
             }
             table <- self$results$crosstab
             if ( self$options$computedValues == "options" ) {
-              table$setTitle("Crosstab (% by row)")
+              table$setTitle(.("Crosstab (% by row)"))
             } else if ( self$options$computedValues == "cases" ) {
-              table$setTitle("Crosstab (% of Cases)")
+              table$setTitle(.("Crosstab (% of Cases)"))
             } else if ( self$options$computedValues == "responses" ) {   
-              table$setTitle("Crosstab (% of Responses)")
+              table$setTitle(.("Crosstab (% of Responses)"))
             }
             # Columns
             if ( ! is.null(self$options$group) ) {
                 groups <- self$data[,self$options$group]
                 for(i in 1:nlevels(groups))
                   table$addColumn(name = levels(groups)[i], type=cellType, format=cellFormat, superTitle=self$options$group)
-                table$addColumn(name = "Total", title="Overall", type=cellType, format=cellFormat, visible=self$options$overall)
+                table$addColumn(name = "Total", title=.("Overall"), type=cellType, format=cellFormat, visible=self$options$overall)
             }
             # Exceptions
             if ( length(self$options$resps) < 1 )
@@ -114,15 +114,15 @@ crosstabsClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
           }
           #plot + 
           if ( self$options$computedValues == "responses" ) {
-            plot <- plot + labs(y="% of Responses") + scale_y_continuous(labels=percent_format())
+            plot <- plot + labs(y=.("% of Responses")) + scale_y_continuous(labels=percent_format())
           } else if ( self$options$computedValues == "cases" ) {
-            plot <- plot + labs(y="% of Cases") + scale_y_continuous(labels=percent_format())
-          } else     if ( self$options$computedValues == "options" ) {
-            plot <- plot + labs(y=paste("% within", self$options$optionname)) + scale_y_continuous(labels=percent_format())
+            plot <- plot + labs(y=.("% of Cases")) + scale_y_continuous(labels=percent_format())
+          } else if ( self$options$computedValues == "options" ) {
+            plot <- plot + labs(y=paste(.("% within"), self$options$optionname)) + scale_y_continuous(labels=percent_format())
+          } else {
+            plot <- plot + labs(y=.("Count"))
           }
-          
-          #self$results$text$setContent(plotData)
-            
+ 
           return(plot)
           
         },

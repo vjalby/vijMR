@@ -1,0 +1,297 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-07-26 12:08:06+01000\n"
+"PO-Revision-Date: 2021-07-29 16:59:59+01000\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: crosstabs/options/computedValues/options.title
+msgid "% by Row"
+msgstr ""
+
+#: crosstabs/ui[2][1][0]/computedValues_options.label
+msgid "% by row"
+msgstr ""
+
+#: R/crosstabs.b.R
+#: R/frequencies.b.R
+#: crosstabs/options/computedValues/cases.title
+#: crosstabs/ui[2][1][0]/computedValues_cases.label
+#: frequencies/options/showCases.title
+#: frequencies/options/yaxis/cases.title
+#: frequencies/ui[2][2][0]/yaxis_cases.label
+#: frequencies/results/responses.columns.title
+msgid "% of Cases"
+msgstr ""
+
+#: R/crosstabs.b.R
+#: R/frequencies.b.R
+#: crosstabs/options/computedValues/responses.title
+#: crosstabs/ui[2][1][0]/computedValues_responses.label
+#: frequencies/options/showResponses.title
+#: frequencies/options/yaxis/responses.title
+#: frequencies/ui[2][2][0]/yaxis_responses.label
+#: frequencies/results/responses.columns.title
+msgid "% of Responses"
+msgstr ""
+
+#: R/crosstabs.b.R
+msgid "% within"
+msgstr ""
+
+#: package.description
+msgid "<p>SPSS like analysis for multiple response questions. Strongly inspired by  multiResponse function from  <a target=\"_blank\"  href=\"https://cran.r-project.org/web/packages/ufs/\">ufs package</a>. Project source is available at  <a href=\"https://github.com/vjalby/vijMR\" target=\"_blank\">Github</a>. The module is available in the Exploration Menu.</p> <p><i>The jamovi team would like to add that supporting multiple response columns natively in the jamovi analyses is on our development  roadmap &ndash; In the mean time, this module makes a great stop-gap.</i> </p>"
+msgstr ""
+
+#: package/datasets/Credit Cards.description
+msgid "A demonstration dataset with four dichotomous variables describing  the credit cards owned by customers."
+msgstr ""
+
+#: crosstabs/options/bartype.title
+#: crosstabs/ui[3][0][0][0].label
+msgid "Bar Type"
+msgstr ""
+
+#: crosstabs/options/xaxis/xcols.title
+#: crosstabs/ui[3][0][1][0]/xaxis_xcols.label
+msgid "Columns (Groups)"
+msgstr ""
+
+#: R/crosstabs.b.R
+#: crosstabs/options/computedValues/count.title
+#: crosstabs/ui[2][1][0]/computedValues_count.label
+msgid "Count"
+msgstr ""
+
+#: crosstabs/options/endorsed.title
+#: frequencies/options/endorsed.title
+msgid "Counted Value"
+msgstr ""
+
+#: R/frequencies.b.R
+#: frequencies/options/showCounts.title
+#: frequencies/options/yaxis/counts.title
+#: frequencies/ui[2][2][0]/yaxis_counts.label
+#: frequencies/results/responses.columns.title
+msgid "Counts"
+msgstr ""
+
+#: package/datasets/Credit Cards.name
+msgid "Credit Cards"
+msgstr ""
+
+#: crosstabs/results/crosstab.title
+msgid "Crosstab"
+msgstr ""
+
+#: R/crosstabs.b.R
+msgid "Crosstab (% by row)"
+msgstr ""
+
+#: R/crosstabs.b.R
+msgid "Crosstab (% of Cases)"
+msgstr ""
+
+#: R/crosstabs.b.R
+msgid "Crosstab (% of Responses)"
+msgstr ""
+
+#: package/analyses/crosstabs.menuTitle
+#: crosstabs/options.menuTitle
+msgid "Crosstabs"
+msgstr ""
+
+#: crosstabs/options/order/decreasing.title
+#: crosstabs/ui[2][2][0]/order_decreasing.label
+#: frequencies/options/order/decreasing.title
+#: frequencies/ui[2][1][0]/order_decreasing.label
+msgid "Decreasing"
+msgstr ""
+
+#: package/analyses/frequencies.menuGroup
+#: package/analyses/crosstabs.menuGroup
+#: crosstabs/options.menuGroup
+#: frequencies/options.menuGroup
+msgid "Exploration"
+msgstr ""
+
+#: package/analyses/frequencies.menuTitle
+#: frequencies/options.menuTitle
+#: frequencies/results/responses.title
+msgid "Frequencies"
+msgstr ""
+
+#: frequencies/results/plot.title
+msgid "Frequency Plot"
+msgstr ""
+
+#: crosstabs/options/group.title
+#: crosstabs/ui[0][1].label
+msgid "Grouping Variable"
+msgstr ""
+
+#: crosstabs/options/size/huge.title
+#: frequencies/options/size/huge.title
+msgid "Huge (800x500)"
+msgstr ""
+
+#: crosstabs/options/order/increasing.title
+#: crosstabs/ui[2][2][0]/order_increasing.label
+#: frequencies/options/order/increasing.title
+#: frequencies/ui[2][1][0]/order_increasing.label
+msgid "Increasing"
+msgstr ""
+
+#: crosstabs/options/size/large.title
+#: frequencies/options/size/large.title
+msgid "Large (600x400)"
+msgstr ""
+
+#: crosstabs/options/size/medium.title
+#: frequencies/options/size/medium.title
+msgid "Medium (400x300)"
+msgstr ""
+
+#: package/analyses/crosstabs.title
+#: crosstabs/options.title
+#: crosstabs/ui.title
+msgid "Multiple Response Crosstabs"
+msgstr ""
+
+#: package/analyses/frequencies.title
+#: frequencies/options.title
+#: frequencies/ui.title
+#: frequencies/results.title
+msgid "Multiple Response Frequencies"
+msgstr ""
+
+#: crosstabs/results.title
+msgid "Mutible Response Crosstab"
+msgstr ""
+
+#: crosstabs/options/order/none.title
+#: crosstabs/ui[2][2][0]/order_none.label
+#: frequencies/options/order/none.title
+#: frequencies/ui[2][1][0]/order_none.label
+msgid "None"
+msgstr ""
+
+#: R/crosstabs.b.R
+#: crosstabs/options/showNbOfCases.title
+msgid "Number of cases"
+msgstr ""
+
+#: R/frequencies.b.R
+msgid "Number of cases:"
+msgstr ""
+
+#: crosstabs/options/optionname.title
+#: frequencies/options/optionname.title
+msgid "Option name"
+msgstr ""
+
+#: crosstabs/options/resps.title
+#: crosstabs/ui[0][0].label
+#: crosstabs/ui[1].label
+#: frequencies/options/resps.title
+#: frequencies/ui[0][0].label
+#: frequencies/ui[1].label
+msgid "Option Variables"
+msgstr ""
+
+#: crosstabs/options/optionname.default
+#: crosstabs/results/crosstab.columns.title
+#: frequencies/options/optionname.default
+#: frequencies/results/responses.columns.title
+msgid "Options"
+msgstr ""
+
+#: R/crosstabs.b.R
+msgid "Overall"
+msgstr ""
+
+#: crosstabs/options/overall.title
+msgid "Overall (all groups)"
+msgstr ""
+
+#: frequencies/ui[2][2][0].label
+msgid "Plot"
+msgstr ""
+
+#: crosstabs/ui[3][0][2].label
+#: frequencies/ui[3].label
+msgid "Plot Size"
+msgstr ""
+
+#: crosstabs/ui[3].label
+#: crosstabs/results/plot.title
+msgid "Plots"
+msgstr ""
+
+#: crosstabs/options/xaxis/xrows.title
+#: crosstabs/ui[3][0][1][0]/xaxis_xrows.label
+msgid "Rows (Options)"
+msgstr ""
+
+#: crosstabs/options/bartype/dodge.title
+#: crosstabs/ui[3][0][0][0]/bartype_dodge.label
+msgid "Side by side"
+msgstr ""
+
+#: crosstabs/options/size/small.title
+#: frequencies/options/size/small.title
+msgid "Small (300x200)"
+msgstr ""
+
+#: crosstabs/options/order.title
+#: crosstabs/ui[2][2][0].label
+#: frequencies/options/order.title
+#: frequencies/ui[2][1][0].label
+msgid "Sorting"
+msgstr ""
+
+#: crosstabs/options/bartype/stack.title
+#: crosstabs/ui[3][0][0][0]/bartype_stack.label
+msgid "Stacked"
+msgstr ""
+
+#: crosstabs/ui[2][0][0].label
+#: frequencies/ui[2][0][0].label
+msgid "Table"
+msgstr ""
+
+#: package.title
+msgid "Table And Graph For Multiple Response Questions"
+msgstr ""
+
+#: frequencies/options/showTotal.title
+msgid "Total"
+msgstr ""
+
+#: crosstabs/options/totalRow.title
+msgid "Total Row"
+msgstr ""
+
+#: crosstabs/options/computedValues.title
+#: crosstabs/ui[2][1][0].label
+msgid "Values"
+msgstr ""
+
+#: package/analyses/frequencies.menuSubgroup
+#: package/analyses/crosstabs.menuSubgroup
+#: crosstabs/options.menuSubgroup
+#: frequencies/options.menuSubgroup
+msgid "vij Multiple Response"
+msgstr ""
+
+#: crosstabs/options/xaxis.title
+#: crosstabs/ui[3][0][1][0].label
+msgid "X-Axis"
+msgstr ""
+
+#: frequencies/options/yaxis.title
+msgid "Y-Axis"
+msgstr ""
