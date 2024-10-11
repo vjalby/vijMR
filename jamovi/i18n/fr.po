@@ -44,11 +44,11 @@ msgstr "% dans"
 
 #: package.description
 msgid "<p>SPSS like analysis for multiple response questions. Strongly inspired by  multiResponse function from  <a target=\"_blank\"  href=\"https://cran.r-project.org/web/packages/ufs/\">ufs package</a>. Project source is available at  <a href=\"https://github.com/vjalby/vijMR\" target=\"_blank\">Github</a>. The module is available in the Exploration Menu.</p> <p><i>The jamovi team would like to add that supporting multiple response columns natively in the jamovi analyses is on our development  roadmap &ndash; In the mean time, this module makes a great stop-gap.</i> </p>"
-msgstr ""
+msgstr "Analyse des questions à réponses multiples. Fortement inspiré de la fonction multiResponse du <a target=\"_blank\"  href=\"https://cran.r-project.org/web/packages/ufs/\">package ufs</a>. Le source du projet est disponible sur <a href=\"https://github.com/vjalby/vijMR\" target=\"_blank\">Github</a>. Le module is disponible dans le menu Exploration.</p> <p><i>The jamovi team would like to add that supporting multiple response columns natively in the jamovi analyses is on our development  roadmap &ndash; In the mean time, this module makes a great stop-gap.</i> </p>"
 
 #: package/datasets/Credit Cards.description
 msgid "A demonstration dataset with four dichotomous variables describing  the credit cards owned by customers."
-msgstr ""
+msgstr "Un fichier de démonstration avec quatres variables dichotomiques décrivant les cartes de crédit détenues par des consommateurs."
 
 #: crosstabs/options/bartype.title
 #: crosstabs/ui[3][0][0][0].label
@@ -264,8 +264,8 @@ msgid "Table"
 msgstr ""
 
 #: package.title
-msgid "Table And Graph For Multiple Response Questions"
-msgstr ""
+msgid "Table and Graph for Multiple Response Questions"
+msgstr "Table et diagramme pour questions à réponses multiples"
 
 #: frequencies/options/showTotal.title
 msgid "Total"
@@ -284,8 +284,8 @@ msgstr "Valeurs"
 #: package/analyses/crosstabs.menuSubgroup
 #: crosstabs/options.menuSubgroup
 #: frequencies/options.menuSubgroup
-msgid "vij Multiple Response"
-msgstr "vij Réponses multiples"
+msgid "vijMR - Multiple Response"
+msgstr "vijMR - Réponses multiples"
 
 #: crosstabs/options/xaxis.title
 #: crosstabs/ui[3][0][1][0].label

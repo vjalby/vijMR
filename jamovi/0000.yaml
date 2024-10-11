@@ -1,12 +1,12 @@
 ---
-title: Table And Graph For Multiple Response Questions
+title: Table and Graph for Multiple Response Questions
 name: vijMR
-version: 2.0.1
+version: 2.1.0
 jms: '1.0'
 authors:
   - Vincent Jalby
 maintainer: Vincent Jalby <vincent.jalby@unilim.fr>
-date: '2024-09-02'
+date: '2024-10-11'
 type: R
 description: >-
   <p>SPSS like analysis for multiple response questions. Strongly inspired by 
@@ -23,13 +23,13 @@ analyses:
     ns: vijMR
     menuGroup: Exploration
     menuTitle: Frequencies
-    menuSubgroup: vij Multiple Response
+    menuSubgroup: vijMR - Multiple Response
   - title: Multiple Response Crosstabs
     name: crosstabs
     ns: vijMR
     menuGroup: Exploration
     menuTitle: Crosstabs
-    menuSubgroup: vij Multiple Response
+    menuSubgroup: vijMR - Multiple Response
 usesNative: true
 minApp: 1.0.8
 datasets:

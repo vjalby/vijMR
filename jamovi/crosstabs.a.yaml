@@ -3,7 +3,7 @@ name:  crosstabs
 title: Multiple Response Crosstabs
 menuTitle: Crosstabs
 menuGroup: Exploration
-menuSubgroup: vij Multiple Response
+menuSubgroup: vijMR - Multiple Response
 version: '1.0.0'
 jas: '1.2'
 

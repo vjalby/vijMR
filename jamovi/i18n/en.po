@@ -264,7 +264,7 @@ msgid "Table"
 msgstr ""
 
 #: package.title
-msgid "Table And Graph For Multiple Response Questions"
+msgid "Table and Graph for Multiple Response Questions"
 msgstr ""
 
 #: frequencies/options/showTotal.title
@@ -284,7 +284,7 @@ msgstr ""
 #: package/analyses/crosstabs.menuSubgroup
 #: crosstabs/options.menuSubgroup
 #: frequencies/options.menuSubgroup
-msgid "vij Multiple Response"
+msgid "vijMR - Multiple Response"
 msgstr ""
 
 #: crosstabs/options/xaxis.title

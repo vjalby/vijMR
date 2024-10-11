@@ -3,7 +3,7 @@ name:  frequencies
 title: Multiple Response Frequencies
 menuTitle: Frequencies
 menuGroup: Exploration
-menuSubgroup: vij Multiple Response
+menuSubgroup: vijMR - Multiple Response
 version: '1.0.0'
 jas: '1.2'
 
