@@ -11,7 +11,7 @@
 ### 2026-01-30
 
 -  This module is not updated anymore. Multiple Response is now available in [vijPlots](https://github.com/vjalby/vijPlots).
--  
+  
 ### 2024-10-11, 2.1.0
 
 -   add french translation
